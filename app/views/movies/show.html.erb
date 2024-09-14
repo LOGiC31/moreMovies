@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @movie %>
-
-<div>
-  <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
-  <%= link_to "Back to movies", movies_path %>
-
+<div style="flex-direction: column">
+  <div style="flex-direction: column">
+    <div > Title : <%= @movie.title%></div>
+    <div> Rating : <%=@movie.rating%></div>
+    <div> Description : <%=@movie.description%></div>
+    <div >Release Date: <%=@movie.release_date%>4</div>
+</div>
+<div style="flex-direction: column">
+  <div>
+    <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
+    <%= link_to "Back to movies", movies_path(@movie, sort: params[:sort], direction: params[:direction]) %>
+  </div>
+  <div>
   <%= button_to "Destroy this movie", @movie, method: :delete %>
+  </div>
+</div>
 </div>

@@ -13,10 +13,76 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+  <style>
+    /* Styling for the table and div */
+    div {
+      padding: 10px;
+      
+      margin: 0 auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #ededed;
+      color: white;
+    }
+    .links {
+    display: inline-block;
+    background-color: #4a90e2;  
+    color: white; 
+    font-weight: bold; 
+    text-decoration: none;
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+  }
 
+  .links:hover {
+    background-color: #357ABD;
+    transform: scale(1.05); 
+  }
+
+  .links:active {
+    transform: scale(0.95); 
+  }
+  .myButton {
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+    background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+    background-color:#ededed;
+    border-radius:6px;
+    border:1px solid #dcdcdc;
+    display:inline-block;
+    cursor:pointer;
+    color:#777777;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ffffff;
+  }
+  .myButton:hover {
+    background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+    background-color:#dfdfdf;
+  }
+  .myButton:active {
+    position:relative;
+    top:1px;
+  }
+  </style>
   <body>
     <%= yield %>
   </body>

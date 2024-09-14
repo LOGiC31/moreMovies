@@ -2,15 +2,72 @@
 
 <% content_for :title, "Movies" %>
 
-<h1>Movies</h1>
+<nav style="width:100%;height:50px;display:flex;align-items:center;border-box:#000 1px;background-color:#d3d3d3"><div style="margin-left:5px;width:100%;height:50px;align-items:center;display:flex;justify-content:center"><span style="font-size:x-large;font-weight:bold;font-family:monospace;letter-spacing: 4px;">ROTTENPOTATOES</span></div></nav>
+<h1 style="margin-left:5px;font-weight:bold;font-family:monospace;">Movies</h1>
 
 <div id="movies">
-  <% @movies.each do |movie| %>
+  <table>
+      <thead>
+        <tr>
+          <th  style="<%= 'background-color: #ededed;' if params[:sort] == 'title' && params[:direction] == 'asc' %>
+                <%= 'background-color: #919191;' if params[:sort] == 'title' && params[:direction] == 'desc' %>">
+          <%= link_to 'Title', movies_path(sort: 'title', direction: params[:direction] == 'asc' ? 'desc' : 'asc'), style:"text-decoration:none;color:#000" %> 
+              <% if params[:sort] == 'title' %>
+                <% if params[:direction] == 'asc' %>
+                  <i class="fas fa-sort-up" style="margin-left: 10px; color: #000;"></i>
+                <% elsif params[:direction] == 'desc' %>
+                  <i class="fas fa-sort-down" style="margin-left: 10px; color: #000;"></i>
+                <% end %>
+              <% else %>
+                <i class="fas fa-sort" style="margin-left: 10px; color: #000;"></i>
+              <% end %>
+          </th>
+          
+          <th style="<%= 'background-color: #ededed;' if params[:sort] == 'rating' && params[:direction] == 'asc' %>
+                <%= 'background-color: #919191;' if params[:sort] == 'rating' && params[:direction] == 'desc' %>">
+          <%= link_to 'Rating', movies_path(sort: 'rating', direction: params[:direction] == 'asc' ? 'desc' : 'asc'), style:"text-decoration:none;color:#000" %> 
+              <% if params[:sort] == 'rating' %>
+                <% if params[:direction] == 'asc' %>
+                  <i class="fas fa-sort-up" style="margin-left: 10px; color: #000;"></i>
+                <% elsif params[:direction] == 'desc' %>
+                  <i class="fas fa-sort-down" style="margin-left: 10px; color: #000;"></i>
+                <% end %>
+              <% else %>
+                <i class="fas fa-sort" style="margin-left: 10px; color: #000;"></i>
+              <% end %>
+          </th>
+          
+          <th style="<%= 'background-color: #ededed;' if params[:sort] == 'release_date' && params[:direction] == 'asc' %>
+                <%= 'background-color: #919191;' if params[:sort] == 'release_date' && params[:direction] == 'desc' %>">
+          <%= link_to 'Release Date', movies_path(sort: 'release_date', direction: params[:direction] == 'asc' ? 'desc' : 'asc'), style:"text-decoration:none;color:#000" %>
+          <% if params[:sort] == 'release_date' %>
+                <% if params[:direction] == 'asc' %>
+                  <i class="fas fa-sort-up" style="margin-left: 10px; color: #000;"></i>
+                <% elsif params[:direction] == 'desc' %>
+                  <i class="fas fa-sort-down" style="margin-left: 10px; color: #000;"></i>
+                <% end %>
+              <% else %>
+                <i class="fas fa-sort" style="margin-left: 10px; color: #000;"></i>
+              <% end %>
+           </th>
+        </tr>
+      </thead>
+      <tbody>
+  <% @movies.each do |movie| %> 
     <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
   <% end %>
+  <tfoot >
+    <tr>
+      <td style="width:100%;text-align:center" colspan="3" > Total : <%= @movies.count %></td>
+    </tr>
+  </tfoot>
+  </tbody>
+    </table>
 </div>
 
-<%= link_to "New movie", new_movie_path %>
+<div style="display:flex;height:30px;justify-content: center;
+margin-top:10px;align-items:center;">
+<span style="text-decoration:none;" class="myButton">
+  <%= link_to "Add New movie", new_movie_path, style:"font-weight:bold;font-family:monospace;text-decoration:none;color:#777777" %>
+  </span>
+</div>

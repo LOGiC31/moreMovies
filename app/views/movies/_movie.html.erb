@@ -1,22 +1,6 @@
-<div id="<%= dom_id movie %>">
-  <p>
-    <strong>Title:</strong>
-    <%= movie.title %>
-  </p>
+<tr>
+    <td class="table-cell"> <%= link_to movie.title, movie_path(movie, sort: params[:sort], direction: params[:direction]) %></td>
+    <td class="table-cell"><%=movie.rating%></td>
+    <td class="table-cell"><%=movie.release_date%>4</td>
+</tr>
 
-  <p>
-    <strong>Rating:</strong>
-    <%= movie.rating %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= movie.description %>
-  </p>
-
-  <p>
-    <strong>Release date:</strong>
-    <%= movie.release_date %>
-  </p>
-
-</div>
