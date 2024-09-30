@@ -19,7 +19,7 @@
 
     <!-- Destroy Button -->
     <div>
-      <%= button_to "Destroy this movie", @movie, method: :delete, class: "btn btn-danger", style: "padding: 8px 12px; background-color: #FF6347; color: white; border: none; border-radius: 4px;" %>
+      <%= button_to "Destroy this movie", @movie, method: :delete, class: "btn btn-danger", style: "padding: 8px 12px; background-color: #FF6347; color: white; border: none; border-radius: 4px;", params: { sort: params[:sort], direction: params[:direction]} %>
     </div>
   </div>
 </div>

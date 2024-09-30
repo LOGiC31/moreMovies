@@ -31,7 +31,12 @@
     <%= form.text_field :release_date %>
   </div>
 
+    <!-- Move hidden fields outside of the movie block -->
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <%= hidden_field_tag :direction, params[:direction] %>
   <div>
     <%= form.submit %>
   </div>
+
 <% end %>
+
