@@ -68,6 +68,6 @@
 <div style="display:flex;height:30px;justify-content: center;
 margin-top:10px;align-items:center;">
 <span style="text-decoration:none;" class="myButton">
-  <%= link_to "Add New movie", new_movie_path, style:"font-weight:bold;font-family:monospace;text-decoration:none;color:#777777" %>
+  <%= link_to "Add New movie", new_movie_path(sort: params[:sort], direction: params[:direction]), style:"font-weight:bold;font-family:monospace;text-decoration:none;color:#777777" %>
   </span>
 </div>

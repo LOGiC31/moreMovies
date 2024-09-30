@@ -1,19 +1,25 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green; font-size: 18px; font-weight: bold;"><%= notice %></p>
 
-<div style="flex-direction: column">
-  <div style="flex-direction: column">
-    <div > Title : <%= @movie.title%></div>
-    <div> Rating : <%=@movie.rating%></div>
-    <div> Description : <%=@movie.description%></div>
-    <div >Release Date: <%=@movie.release_date%>4</div>
-</div>
-<div style="flex-direction: column">
-  <div>
-    <%= link_to "Edit this movie", edit_movie_path(@movie) %> |
-    <%= link_to "Back to movies", movies_path(@movie, sort: params[:sort], direction: params[:direction]) %>
+<div style="display: flex; flex-direction: column; gap: 15px; padding: 15px; background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
+  <!-- Movie Details Section -->
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="font-size: 16px; font-weight: bold;"> Title: <span style="font-weight: normal;"><%= @movie.title %></span></div>
+    <div style="font-size: 16px; font-weight: bold;"> Rating: <span style="font-weight: normal;"><%= @movie.rating %></span></div>
+    <div style="font-size: 16px; font-weight: bold;"> Description: <span style="font-weight: normal;"><%= @movie.description %></span></div>
+    <div style="font-size: 16px; font-weight: bold;"> Release Date: <span style="font-weight: normal;"><%= @movie.release_date %></span></div>
   </div>
-  <div>
-  <%= button_to "Destroy this movie", @movie, method: :delete %>
+
+  <!-- Action Buttons Section -->
+  <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 10px;">
+    <!-- Edit and Back Links -->
+    <div>
+      <%= link_to "Edit this movie", edit_movie_path(@movie, sort: params[:sort], direction: params[:direction]), class: "btn btn-primary", style: "padding: 8px 12px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px;" %> |
+      <%= link_to "Back to movies", movies_path(sort: params[:sort], direction: params[:direction]), class: "btn btn-secondary", style: "padding: 8px 12px; background-color: #007BFF; color: white; text-decoration: none; border-radius: 4px;" %>
+    </div>
+
+    <!-- Destroy Button -->
+    <div>
+      <%= button_to "Destroy this movie", @movie, method: :delete, class: "btn btn-danger", style: "padding: 8px 12px; background-color: #FF6347; color: white; border: none; border-radius: 4px;" %>
+    </div>
   </div>
-</div>
 </div>

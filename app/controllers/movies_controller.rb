@@ -8,12 +8,12 @@ class MoviesController < ApplicationController
     # Handle sorting
     if params[:sort].present?
       case params[:sort]
-      when 'title'
-        @movies = @movies.order(title: params[:direction] == 'desc' ? :desc : :asc)
-      when 'rating'
-        @movies = @movies.order(rating: params[:direction] == 'desc' ? :desc : :asc)
-      when 'release_date'
-        @movies = @movies.order(release_date: params[:direction] == 'desc' ? :desc : :asc)
+      when "title"
+        @movies = @movies.order(title: params[:direction] == "desc" ? :desc : :asc)
+      when "rating"
+        @movies = @movies.order(rating: params[:direction] == "desc" ? :desc : :asc)
+      when "release_date"
+        @movies = @movies.order(release_date: params[:direction] == "desc" ? :desc : :asc)
       end
     end
   end
@@ -37,7 +37,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to movie_url(@movie), notice: "Movie was successfully created." }
+        format.html { redirect_to movies_path(sort: params[:sort], direction: params[:direction], notice:), "Movie was successfully created." }
         format.json { render :show, status: :created, location: @movie }
       else
         format.html { render :new, status: :unprocessable_entity }
